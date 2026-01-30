@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function Navbar({ onEnroll }) {
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -5,10 +7,14 @@ export default function Navbar({ onEnroll }) {
 
   return (
     <nav className="navbar">
+      {/* Clickable Logo Area */}
       <div className="nav-logo" onClick={() => scrollTo("hero")}>
-          <img src="/logo.png" alt="Indian School for Modern Languages" />
+        <img src="/logo.png" alt="ISML Logo" className="logo-img" />
+        {/* Optional text if logo image fails or for SEO */}
+        <span className="logo-text">ISML <span style={{color: "var(--accent)"}}>FOUNDATION</span></span>
       </div>
 
+      {/* Desktop Navigation Links */}
       <div className="nav-links">
         <span onClick={() => scrollTo("programs")}>Program</span>
         <span onClick={() => scrollTo("languages")}>Languages</span>
@@ -16,7 +22,8 @@ export default function Navbar({ onEnroll }) {
         <span onClick={() => scrollTo("faq")}>FAQ</span>
       </div>
 
-      <button onClick={onEnroll}>Enroll Now</button>
+      {/* Primary CTA Button */}
+      <button className="nav-btn" onClick={onEnroll}>Enroll Now</button>
     </nav>
   );
 }

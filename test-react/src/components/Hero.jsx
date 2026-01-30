@@ -1,33 +1,46 @@
+import React from "react";
+
 export default function Hero({ onEnroll }) {
   return (
-    <section style={{ textAlign: "center" }}>
-      <h1>
-        Build a Strong Tech Career Foundation with <br />
-        <span style={{ color: "var(--primary)" }}>
-          ISML FOUNDATION PROGRAM
-        </span>
-      </h1>
+    <section className="hero-section">
+      <div className="hero-grid">
+        {/* LEFT: Content & CTA */}
+        <div className="hero-content fade-up show">
+          <div className="badge-pill">🚀 New Batch Starting Soon</div>
+          
+          <h1>
+            Launch Your Tech Career with <br />
+            <span className="highlight-text">ISML FOUNDATION</span>
+          </h1>
 
-      <p style={{ color: "var(--text-muted)", marginBottom: 30 }}>
-        Beginner-friendly structured program designed to build clarity and confidence
-      </p>
+          <p className="hero-subtext">
+            Don't just learn syntax. Build the <strong>confidence, clarity, and logic</strong> required to crack top tech interviews. Perfect for beginners.
+          </p>
 
-      {/* 🎥 VIDEO SECTION */}
-      <div className="video-wrapper">
-        <video
-          controls
-          poster="/video-thumbnail.jpg"   // optional thumbnail
-          className="hero-video"
-        >
-          <source src="/intro.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
+          <div className="hero-actions">
+            <button onClick={onEnroll} className="btn-primary pulse-btn">
+              Join Now – ₹1299
+            </button>
+            <div className="trust-mini">
+              <span className="stars">⭐⭐⭐⭐⭐</span>
+              <span className="trust-text">Rated 4.9 by 500+ Students</span>
+            </div>
+          </div>
+        </div>
 
-      {/* CTA CARD */}
-      <div className="card" style={{ maxWidth: 420, margin: "40px auto 0" }}>
-        <p style={{ marginBottom: 12 }}>Live • Beginner • Online</p>
-        <button onClick={onEnroll}>Join Now – ₹1299</button>
+        {/* RIGHT: Video with Decorative Backdrop */}
+        <div className="hero-visual fade-up show">
+          <div className="video-decoration"></div> 
+          <div className="video-wrapper-hero">
+            <video
+              controls
+              poster="/video-thumbnail.jpg"
+              className="hero-video"
+            >
+              <source src="/intro.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
       </div>
     </section>
   );
