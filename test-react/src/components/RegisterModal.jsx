@@ -1,96 +1,74 @@
 import React, { useState } from "react";
 
 export default function RegisterModal({ open, onClose }) {
-  // 1. STATE MANAGEMENT
   const [formData, setFormData] = useState({
-    firstname: "",
+    name: "",
     email: "",
-    phone: "",
-    state: "",
-    profession: "",
+    phone: ""
   });
-  const [loading, setLoading] = useState(false);
-
-  // CONSTANTS
-  const PRODUCT_INFO = "ISML Foundation Batch";
-  const AMOUNT = "1299.00"; // PayU expects 2 decimal places
-
-  // REPLACE THIS WITH YOUR RAILWAY BACKEND URL
-  const BACKEND_URL = "https://isml-backend-production.up.railway.app/"; 
-
-  // TOGGLE THIS FOR LIVE MODE
-  // const PAYU_URL = "https://secure.payu.in/_payment"; // LIVE
-  const PAYU_URL = "https://test.payu.in/_payment"; // TEST
 
   if (!open) return null;
 
-  // 2. INPUT HANDLER
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
   };
 
-  // 3. PAYMENT LOGIC
   const handlePayment = async (e) => {
     e.preventDefault();
-    setLoading(true);
-
-    // A. Generate Unique Transaction ID
-    const txnid = "ISML" + Math.floor(Math.random() * 1000000000);
 
     try {
-      // B. Get Hash from Railway Backend
-      const response = await fetch(`${BACKEND_URL}/api/payment/hash`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          txnid: txnid,
-          amount: AMOUNT,
-          productinfo: PRODUCT_INFO,
-          firstname: formData.firstname,
-          email: formData.email,
-        }),
-      });
+      const res = await fetch(
+        "https://isml-backend-production.up.railway.app/create-payment",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone
+          })
+        }
+      );
 
-      const data = await response.json();
+      const data = await res.json();
 
-      if (!data.hash) {
-        alert("Payment Error: Failed to connect to server.");
-        setLoading(false);
-        return;
-      }
-
-      // C. Submit to PayU dynamically
+      // Create PayU form
       const form = document.createElement("form");
-      form.action = PAYU_URL;
       form.method = "POST";
+      form.action = "https://test.payu.in/_payment"; // change to LIVE later
 
-      const addField = (name, value) => {
+      const fields = {
+        key: data.key,
+        txnid: data.txnid,
+        amount: data.amount,
+        productinfo: data.productinfo,
+        firstname: data.firstname,
+        email: data.email,
+        phone: data.phone,
+        surl: data.surl,
+        furl: data.furl,
+        hash: data.hash
+      };
+
+      for (const name in fields) {
         const input = document.createElement("input");
         input.type = "hidden";
         input.name = name;
-        input.value = value;
+        input.value = fields[name];
         form.appendChild(input);
-      };
-
-      // Required PayU Fields
-      addField("key", data.key); // Key comes from backend for safety
-      addField("txnid", txnid);
-      addField("amount", AMOUNT);
-      addField("productinfo", PRODUCT_INFO);
-      addField("firstname", formData.firstname);
-      addField("email", formData.email);
-      addField("phone", formData.phone);
-      addField("surl", window.location.origin + "/success"); // Redirect after success
-      addField("furl", window.location.origin + "/failure"); // Redirect after failure
-      addField("hash", data.hash);
+      }
 
       document.body.appendChild(form);
-      form.submit(); // Redirects user to PayU
+      form.submit();
 
-    } catch (error) {
-      console.error("Payment Error:", error);
-      alert("Something went wrong. Check your internet connection.");
-      setLoading(false);
+    } catch (err) {
+      console.error(err);
+      alert("Payment initiation failed");
     }
   };
 
@@ -106,53 +84,42 @@ export default function RegisterModal({ open, onClose }) {
 
         <form className="register-form" onSubmit={handlePayment}>
           <label>Full Name</label>
-          <input 
-            type="text" name="firstname" placeholder="Ex: Rahul Sharma" 
-            required onChange={handleChange} 
+          <input
+            type="text"
+            name="name"
+            required
+            placeholder="Ex: Rahul Sharma"
+            value={formData.name}
+            onChange={handleChange}
           />
 
           <label>Email Address</label>
-          <input 
-            type="email" name="email" placeholder="rahul@example.com" 
-            required onChange={handleChange} 
+          <input
+            type="email"
+            name="email"
+            required
+            placeholder="rahul@example.com"
+            value={formData.email}
+            onChange={handleChange}
           />
 
           <label>Mobile Number</label>
           <div className="phone-input">
             <span>🇮🇳 +91</span>
-            <input 
-              type="tel" name="phone" placeholder="98765 43210" 
-              required onChange={handleChange} 
+            <input
+              type="tel"
+              name="phone"
+              required
+              placeholder="9876543210"
+              value={formData.phone}
+              onChange={handleChange}
             />
           </div>
 
-          <div className="form-row">
-            <div className="form-group">
-              <label>Profession</label>
-              <select name="profession" required onChange={handleChange} defaultValue="">
-                <option value="" disabled>Select...</option>
-                <option>Student</option>
-                <option>Working Professional</option>
-                <option>Career Switcher</option>
-              </select>
-            </div>
-            
-            <div className="form-group">
-              <label>State</label>
-              <select name="state" required onChange={handleChange} defaultValue="">
-                 <option value="" disabled>Select...</option>
-                 <option>Tamil Nadu</option>
-                 <option>Karnataka</option>
-                 <option>Kerala</option>
-                 <option>Others</option>
-              </select>
-            </div>
-          </div>
-
-          <button type="submit" className="submit-btn pulse-btn" disabled={loading}>
-            {loading ? "Processing..." : `Proceed to Payment (₹${AMOUNT})`}
+          <button type="submit" className="submit-btn pulse-btn">
+            Proceed to Payment (₹1299)
           </button>
-          
+
           <p className="privacy-note">Your data is safe with ISML.</p>
         </form>
       </div>
