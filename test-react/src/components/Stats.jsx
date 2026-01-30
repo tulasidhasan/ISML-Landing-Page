@@ -14,24 +14,23 @@ export default function Stats() {
   ];
 
   return (
-    <section
-      ref={sectionRef}
-      style={{
-        display: "grid",
-        gap: 20,
-        gridTemplateColumns: "repeat(auto-fit,minmax(200px,1fr))"
-      }}
+    <div 
+      ref={sectionRef} 
+      className="stats-container fade-up show"
     >
-      {items.map((item) => (
-        <div
-          key={item.label}
-          className="card fade-up show"
-          style={{ textAlign: "center" }}
-        >
-          <AnimatedNumber value={item.value} suffix={item.suffix} />
-          <p>{item.label}</p>
-        </div>
-      ))}
-    </section>
+      <div className="stats-glass-strip">
+        {items.map((item, index) => (
+          <div key={item.label} className="stat-item">
+            <div className="stat-number">
+              <AnimatedNumber value={item.value} suffix={item.suffix} />
+            </div>
+            <div className="stat-label">{item.label}</div>
+            
+            {/* Show divider line for all items except the last one */}
+            {index !== items.length - 1 && <div className="stat-divider"></div>}
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
