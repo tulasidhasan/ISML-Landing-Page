@@ -16,7 +16,7 @@ export default function RegisterModal({ open, onClose }) {
   const AMOUNT = "1299.00"; // PayU expects 2 decimal places
 
   // REPLACE THIS WITH YOUR RAILWAY BACKEND URL
-  const BACKEND_URL = ""; 
+  const BACKEND_URL = "https://isml-backend-production.up.railway.app/"; 
 
   // TOGGLE THIS FOR LIVE MODE
   // const PAYU_URL = "https://secure.payu.in/_payment"; // LIVE
