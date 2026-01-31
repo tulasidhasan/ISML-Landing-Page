@@ -38,7 +38,7 @@ export default function RegisterModal({ open, onClose }) {
             profession: formData.profession,
             state: formData.state,
             batch: formData.batch,
-            amount: "10.00" // Fixed amount from Circular
+            amount: "1.00" // Fixed amount from Circular
           })
         }
       );
