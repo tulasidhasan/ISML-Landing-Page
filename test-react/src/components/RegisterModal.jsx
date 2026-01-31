@@ -48,7 +48,7 @@ export default function RegisterModal({ open, onClose }) {
       // Create PayU form dynamically
       const form = document.createElement("form");
       form.method = "POST";
-      form.action = "https://secure.payu.in/_payment"; // Switch to "https://secure.payu.in/_payment" for LIVE
+      form.action = "https://test.payu.in/_payment"; // Switch to "https://secure.payu.in/_payment" for LIVE
 
       const fields = {
         key: data.key,
