@@ -6,29 +6,33 @@ export default function Hero({ onEnroll }) {
       <div className="hero-grid">
         {/* LEFT: Content & CTA */}
         <div className="hero-content fade-up show">
-          <div className="badge-pill">🚀 New Batch Starting Soon</div>
+          {/* Date from Circular [cite: 71] */}
+          <div className="badge-pill">🚀 New Batch Starts 15 Feb 2026</div>
           
           <h1>
-            Launch Your Tech Career with <br />
-            <span className="highlight-text">ISML FOUNDATION</span>
+            Your Premier Destination for <br />
+            <span className="highlight-text">MODERN LANGUAGES</span>
           </h1>
 
           <p className="hero-subtext">
-            Don't just learn syntax. Build the <strong>confidence, clarity, and logic</strong> required to crack top tech interviews. Perfect for beginners.
+            Join the <strong>ISML Foundation Program</strong>. A structured 3-month certificate course 
+            aligned with international standards (DELF, Goethe, JLPT). 
+            Bridge cultures and build a global career.
           </p>
 
           <div className="hero-actions">
+            {/* Price from Circular  */}
             <button onClick={onEnroll} className="btn-primary pulse-btn">
-              Join Now – ₹1299
+              Join Foundation Program – ₹1299
             </button>
             <div className="trust-mini">
               <span className="stars">⭐⭐⭐⭐⭐</span>
-              <span className="trust-text">Rated 4.9 by 500+ Students</span>
+              <span className="trust-text">Rated 4.9 by 20,000+ Learners</span>
             </div>
           </div>
         </div>
 
-        {/* RIGHT: Video with Decorative Backdrop */}
+        {/* RIGHT: Video */}
         <div className="hero-visual fade-up show">
           <div className="video-decoration"></div> 
           <div className="video-wrapper-hero">

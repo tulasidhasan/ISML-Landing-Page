@@ -4,7 +4,10 @@ export default function RegisterModal({ open, onClose }) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phone: ""
+    phone: "",
+    profession: "",
+    state: "",
+    batch: "" // Added to capture Weekday vs Weekend preference
   });
 
   if (!open) return null;
@@ -20,6 +23,7 @@ export default function RegisterModal({ open, onClose }) {
     e.preventDefault();
 
     try {
+      // Sending all collected data to your backend
       const res = await fetch(
         "https://isml-backend-production.up.railway.app/create-payment",
         {
@@ -30,17 +34,21 @@ export default function RegisterModal({ open, onClose }) {
           body: JSON.stringify({
             name: formData.name,
             email: formData.email,
-            phone: formData.phone
+            phone: formData.phone,
+            profession: formData.profession,
+            state: formData.state,
+            batch: formData.batch,
+            amount: "1299.00" // Fixed amount from Circular
           })
         }
       );
 
       const data = await res.json();
 
-      // Create PayU form
+      // Create PayU form dynamically
       const form = document.createElement("form");
       form.method = "POST";
-      form.action = "https://test.payu.in/_payment"; // change to LIVE later
+      form.action = "https://test.payu.in/_payment"; // Switch to "https://secure.payu.in/_payment" for LIVE
 
       const fields = {
         key: data.key,
@@ -53,6 +61,7 @@ export default function RegisterModal({ open, onClose }) {
         surl: data.surl,
         furl: data.furl,
         hash: data.hash
+        // You can add udf1: formData.batch if your backend maps it
       };
 
       for (const name in fields) {
@@ -68,7 +77,7 @@ export default function RegisterModal({ open, onClose }) {
 
     } catch (err) {
       console.error(err);
-      alert("Payment initiation failed");
+      alert("Payment initiation failed. Please check your connection.");
     }
   };
 
@@ -79,10 +88,11 @@ export default function RegisterModal({ open, onClose }) {
 
         <div className="modal-header">
           <h3>Secure Your Spot</h3>
-          <p>Complete your registration for the upcoming batch.</p>
+          <p>Register for the ISML Foundation Program 2026.</p>
         </div>
 
         <form className="register-form" onSubmit={handlePayment}>
+          {/* Full Name */}
           <label>Full Name</label>
           <input
             type="text"
@@ -93,6 +103,7 @@ export default function RegisterModal({ open, onClose }) {
             onChange={handleChange}
           />
 
+          {/* Email */}
           <label>Email Address</label>
           <input
             type="email"
@@ -103,6 +114,7 @@ export default function RegisterModal({ open, onClose }) {
             onChange={handleChange}
           />
 
+          {/* Mobile */}
           <label>Mobile Number</label>
           <div className="phone-input">
             <span>🇮🇳 +91</span>
@@ -115,6 +127,55 @@ export default function RegisterModal({ open, onClose }) {
               onChange={handleChange}
             />
           </div>
+
+          {/* Row for Profession & State */}
+          <div className="form-row">
+            <div className="form-group">
+              <label>Profession</label>
+              <select 
+                name="profession" 
+                required 
+                value={formData.profession} 
+                onChange={handleChange}
+              >
+                <option value="" disabled>Select...</option>
+                <option>Student</option>
+                <option>Working Professional</option>
+                <option>Career Switcher</option>
+              </select>
+            </div>
+
+            <div className="form-group">
+              <label>State</label>
+              <select 
+                name="state" 
+                required 
+                value={formData.state} 
+                onChange={handleChange}
+              >
+                <option value="" disabled>Select...</option>
+                <option>Tamil Nadu</option>
+                <option>Karnataka</option>
+                <option>Kerala</option>
+                <option>Maharashtra</option>
+                <option>Delhi</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          {/* Batch Preference - Added from Circular */}
+          <label>Preferred Batch</label>
+          <select 
+            name="batch" 
+            required 
+            value={formData.batch} 
+            onChange={handleChange}
+          >
+            <option value="" disabled>Select Batch...</option>
+            <option value="Weekday">Weekday (Mon / Wed / Fri)</option>
+            <option value="Weekend">Weekend (Sat / Sun)</option>
+          </select>
 
           <button type="submit" className="submit-btn pulse-btn">
             Proceed to Payment (₹1299)
