@@ -1,6 +1,22 @@
 import React from "react";
 
 export default function Trust() {
+  const struggleItems = [
+    "Don't know where to start",
+    "Grammar feels like math equations",
+    "Fear of speaking in public",
+    "Forgetting words during interviews",
+    "Zero feedback on mistakes"
+  ];
+
+  const successItems = [
+    "Structured Step-by-Step Roadmap",
+    "Live Speaking Practice",
+    "Confidence to crack interviews",
+    "Vocabulary that sticks naturally",
+    "Personalized Mentor Feedback"
+  ];
+
   return (
     <section id="programs" className="trust-section">
       <div className="trust-container">
@@ -9,38 +25,41 @@ export default function Trust() {
 
         <div className="comparison-grid">
           
-          {/* THE STRUGGLE (Left) */}
+          {/* LEFT: THE STRUGGLE */}
           <div className="compare-card struggle fade-up show">
             <div className="card-header">
-              <span className="icon">🛑</span>
+              <div className="icon-badge red">🛑</div>
               <h3>The "Self-Learning" Trap</h3>
             </div>
             <ul>
-              <li>Don't know where to start</li>
-              <li>Grammar feels like math equations</li>
-              <li>Fear of speaking in public</li>
-              <li>Forgetting words during interviews</li>
-              <li>Zero feedback on mistakes</li>
+              {struggleItems.map((item, index) => (
+                <li key={index}>
+                  <span className="list-icon cross">✕</span>
+                  <span>{item}</span>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* THE CONNECTOR (Center Arrow) */}
+          {/* CENTER: ARROW */}
           <div className="connector">
             <div className="arrow-circle">➔</div>
           </div>
 
-          {/* THE SOLUTION (Right) */}
+          {/* RIGHT: THE SOLUTION */}
           <div className="compare-card success fade-up show">
             <div className="card-header">
-              <span className="icon">🚀</span>
+              <div className="icon-badge blue">🚀</div>
               <h3>The ISML Advantage</h3>
             </div>
             <ul>
-              <li><strong>Structured</strong> Step-by-Step Roadmap</li>
-              <li><strong>Live</strong> Speaking Practice</li>
-              <li>Confidence to crack interviews</li>
-              <li>Vocabulary that sticks naturally</li>
-              <li>Personalized Mentor Feedback</li>
+              {successItems.map((item, index) => (
+                <li key={index}>
+                  <span className="list-icon check">✔</span>
+                  {/* Parsing bold text if needed, or just rendering string */}
+                  <span>{item}</span>
+                </li>
+              ))}
             </ul>
           </div>
 

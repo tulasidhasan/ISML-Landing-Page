@@ -2,24 +2,24 @@ import { useState } from "react";
 
 const faqs = [
   {
-    question: "Why should I learn a new language?",
-    answer: "Learning a new language improves cognitive skills, cultural understanding, and opens up global career opportunities in tech and business."
+    question: "Where are the classes conducted?",
+    answer: "All classes are conducted LIVE online via Google Meet. You will receive the meeting link after registration." // From Circular
   },
   {
-    question: "Is this course suitable for absolute beginners?",
-    answer: "Yes! This Foundation Program is designed specifically for students with zero prior knowledge. we start from the very basics."
+    question: "What is the duration of the program?",
+    answer: "The Foundation Program runs for 12-14 weeks. Each session is 2 hours long (1.5 hrs teaching + 30 mins guided speaking practice)." // From Circular
+  },
+  {
+    question: "Can I pay in installments?",
+    answer: "No. As per the 2026 Academic Circular, the fee of ₹1,299 is a one-time payment with no installment options." // From Circular
+  },
+  {
+    question: "What languages are available in this batch?",
+    answer: "The 2026 Foundation Batch focuses on French (DELF A1) and German (Goethe A1). Japanese JLPT prep is available in select batches." // Clarifying Circular vs Profile
   },
   {
     question: "Will I get a certificate?",
-    answer: "Yes, upon completing the workshops and exercises, you will receive a verifiable Certificate of Participation from ISML."
-  },
-  {
-    question: "What languages are covered?",
-    answer: "We cover the foundations of French, German, and Japanese, giving you a taste of each so you can decide which path to pursue."
-  },
-  {
-    question: "Do I need to install any software?",
-    answer: "No. All classes are online, and study materials are provided digitally. You just need a laptop/phone and internet."
+    answer: "Yes. Upon successful completion of the course and mock assessments, you will receive an official ISML Certificate." // From Circular
   }
 ];
 
