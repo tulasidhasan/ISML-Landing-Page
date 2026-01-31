@@ -40,7 +40,7 @@ export default function StickyCTA({ onEnroll }) {
   const minutes = String(Math.floor(timeLeft / 60)).padStart(2, "0");
   const seconds = String(timeLeft % 60).padStart(2, "0");
   const isOfferActive = timeLeft > 0;
-  const currentPrice = isOfferActive ? 1200 : 2000;
+  const currentPrice = isOfferActive ? 1299 : 2000;
 
   return (
     <div className="sticky-cta-bar slide-up">

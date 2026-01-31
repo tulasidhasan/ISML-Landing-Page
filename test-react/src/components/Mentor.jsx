@@ -19,48 +19,60 @@ export default function Mentor({ onEnroll }) {
         {/* LEFT: Photo & Badge */}
         <div className="mentor-profile-card fade-up show">
           <div className="mentor-image-wrapper">
-            <img src="/mentor.png" alt="Pradeep Kumar M" />
+            <img src="/mentor.png" alt="Pradeep Kumar M - ISML Founder" />
           </div>
           <div className="mentor-badges">
-            <span className="badge-exp">🏆 10+ Years Exp</span>
+            <span className="badge-exp">🏆 12+ Years Exp</span>
             <span className="badge-role">Founder, ISML</span>
           </div>
         </div>
 
         {/* RIGHT: Content & Session Details */}
         <div className="mentor-content fade-up show">
-          <h2 className="mentor-title">Meet Your Instructor</h2>
+          <h2 className="mentor-title">Meet Your Lead Instructor</h2>
           <h3 className="mentor-name">Pradeep Kumar M</h3>
           <p className="mentor-bio">
-            Language learning isn't about memorizing dictionaries. It's about logic and confidence. 
-            I have trained <strong>10,000+ students</strong> to master French, German, and Japanese 
-            using my unique "Logic-First" method.
+            "We don't just teach languages; we build careers." <br />
+            With over a decade of experience since 2014, Pradeep has empowered 
+            <strong> 20,000+ students</strong> to master French & German. His unique 
+            <strong> Communicative Training Method</strong> ensures you speak from Day 1, 
+            focusing on the skills needed for DELF/Goethe exams and MNC interviews.
           </p>
 
-          {/* Session Info Box */}
+          {/* Session Info Box - Aligned with Circular */}
           <div className="session-info-box">
             <div className="session-row">
               <div className="session-detail">
                 <span className="icon">📅</span>
                 <div>
-                  <strong>Next Batch:</strong>
-                  <span>Sunday, 25 Jan 2026</span>
+                  <strong>Batch Starts:</strong>
+                  <span>Sunday, 18 Jan 2026</span>
                 </div>
               </div>
               <div className="session-detail">
+                <span className="icon">💻</span>
+                <div>
+                  <strong>Mode:</strong>
+                  <span>Online (Google Meet)</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="session-row">
+               <div className="session-detail">
                 <span className="icon">⏰</span>
                 <div>
-                  <strong>Time:</strong>
-                  <span>10:00 AM IST</span>
+                  <strong>Duration:</strong>
+                  <span>12-14 Weeks (2 Hrs/Session)</span>
                 </div>
               </div>
             </div>
             
             <div className="mentor-actions">
                <button className="mentor-cta-btn pulse-btn" onClick={onEnroll}>
-                  Reserve Seat – ₹1200 <span className="old-price">₹2000</span>
+                  Join Batch – ₹1299 <span className="old-price">₹2000</span>
                </button>
-               <p className="offer-timer">⚡ Offer expires in {minutes}:{seconds}</p>
+               <p className="offer-timer">⚡ Limited seats for 2026 Batch</p>
             </div>
           </div>
         </div>
