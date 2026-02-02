@@ -503,6 +503,16 @@ body {
   cursor: pointer;
 }
 
+/* Add this to Tools.css */
+.flag-icon {
+  width: 1.2em;
+  height: 1.2em;
+  object-fit: cover;
+  border-radius: 4px;
+  vertical-align: middle;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
 .tool-content {
   text-align: center;
   background: white;

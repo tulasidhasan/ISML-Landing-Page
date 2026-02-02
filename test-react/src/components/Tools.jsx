@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import './Tools.css';
 
 export default function Tools() {
   const [isSpinning, setIsSpinning] = useState(false);
@@ -6,16 +7,28 @@ export default function Tools() {
   // Center Hub: ISML Academy
   const centerItem = { name: "ISML", icon: "🏛️", desc: "Academy" };
 
-  // Ring Items
+  // Ring Items - Updated with SVG Images for Flags
   const tools = [
-    { name: "French", icon: "🇫🇷", desc: "DELF Prep" },
-    { name: "German", icon: "🇩🇪", desc: "Goethe Prep" },
+    { 
+      name: "French", 
+      icon: <img src="https://flagcdn.com/fr.svg" alt="FR" className="flag-icon"/>, 
+      desc: "DELF Prep" 
+    },
+    { 
+      name: "German", 
+      icon: <img src="https://flagcdn.com/de.svg" alt="DE" className="flag-icon"/>, 
+      desc: "Goethe Prep" 
+    },
     { name: "Speaking", icon: "🗣️", desc: "Fluency" },
     { name: "Reading", icon: "📖", desc: "Comprehension" },
     { name: "Writing", icon: "✍️", desc: "Grammar" },
     { name: "Listening", icon: "🎧", desc: "Audio Training" },
     { name: "Culture", icon: "🌏", desc: "Etiquette" },
-    { name: "CEFR", icon: "🇪🇺", desc: "EU Standards" }
+    { 
+      name: "CEFR", 
+      icon: <img src="https://flagcdn.com/eu.svg" alt="EU" className="flag-icon"/>, 
+      desc: "EU Standards" 
+    }
   ];
 
   const radius = 250; 
