@@ -497,17 +497,141 @@ body {
 }
 
 /* Mobile Wheel */
+/* =========================================
+   CREATIVE MOBILE LAYOUT (Floating Galaxy)
+   ========================================= */
 @media (max-width: 768px) {
-  .wheel-section { padding: 3rem 0; }
-  .wheel-container { width: 340px; height: 340px; }
-  .orbit-item { width: 100px; }
-  .tool-content { padding: 0.5rem; border-radius: 8px; }
-  .tool-icon { font-size: 1.5rem; }
-  .tool-content h4 { font-size: 0.8rem; }
-  .tool-content p { display: none; }
-  .wheel-hub { width: 80px; height: 80px; }
-  .hub-title { font-size: 1rem; }
-  .hub-icon { font-size: 1.5rem; }
+
+  /* 1. Reset Container Sizing */
+  .wheel-section {
+    padding: 3rem 1.5rem;
+    overflow: visible; /* Allow shadows to breathe */
+  }
+
+  .wheel-container {
+    width: 100%;
+    height: auto; /* Allow it to grow vertically */
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px; /* Space between Hub and Grid */
+  }
+
+  /* 2. The Hub (ISML) - Beating Heart Effect */
+  .wheel-hub {
+    position: relative; /* No longer absolute */
+    top: auto; left: auto;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    border-width: 3px;
+    box-shadow: 0 0 25px rgba(20, 136, 204, 0.4);
+    animation: hub-pulse 3s infinite ease-in-out; /* Creative Pulse */
+  }
+  
+  .hub-title { font-size: 1.2rem; }
+  .hub-icon { font-size: 1.8rem; }
+
+  /* 3. The Grid Wrapper */
+  .wheel-orbit {
+    position: relative;
+    width: 100%;
+    height: auto;
+    animation: none; /* Stop the spin on mobile */
+    
+    /* Create a 2-column Grid */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    padding-bottom: 20px;
+  }
+
+  /* 4. Individual Cards - Reset Position & Add Float */
+  .orbit-item {
+    position: relative; /* Stop flying off screen */
+    top: auto !important;
+    left: auto !important;
+    width: 100%;
+    
+    /* IMPORTANT: Override the JS circle math */
+    transform: none !important; 
+    
+    display: flex;
+    justify-content: center;
+  }
+
+  .tool-content {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 110px; /* Uniform height */
+    background: #fff;
+    border: 1px solid #edf2f7;
+    /* Creative Entry Animation */
+    animation: float-up 0.6s ease-out forwards;
+    opacity: 0; /* Start hidden for animation */
+  }
+
+  /* Show description on mobile now that we have space */
+  .tool-content p {
+    display: block;
+    font-size: 0.75rem;
+    opacity: 0.8;
+    margin-top: 4px;
+    white-space: nowrap; /* Keep it one line if possible */
+  }
+
+  /* 5. CREATIVE STAGGERING (The "Zig-Zag" Look) */
+  /* Push every 2nd item down to create a masonry look */
+  .orbit-item:nth-child(even) {
+    margin-top: 30px; 
+  }
+
+  /* 6. ANIMATIONS */
+  
+  /* Stagger the entry animation so they pop in one by one */
+  .orbit-item:nth-child(1) .tool-content { animation-delay: 0.1s; }
+  .orbit-item:nth-child(2) .tool-content { animation-delay: 0.2s; }
+  .orbit-item:nth-child(3) .tool-content { animation-delay: 0.3s; }
+  .orbit-item:nth-child(4) .tool-content { animation-delay: 0.4s; }
+  .orbit-item:nth-child(5) .tool-content { animation-delay: 0.5s; }
+  .orbit-item:nth-child(6) .tool-content { animation-delay: 0.6s; }
+  .orbit-item:nth-child(7) .tool-content { animation-delay: 0.7s; }
+  .orbit-item:nth-child(8) .tool-content { animation-delay: 0.8s; }
+
+  /* Continuous Floating Motion */
+  .orbit-item:nth-child(odd) .tool-content {
+    animation: float-y 4s ease-in-out infinite 1s; /* Delayed start */
+  }
+  .orbit-item:nth-child(even) .tool-content {
+    animation: float-y-reverse 5s ease-in-out infinite 1s;
+  }
+}
+
+/* --- New Mobile Keyframes --- */
+@keyframes hub-pulse {
+  0% { transform: scale(1); box-shadow: 0 0 25px rgba(20, 136, 204, 0.4); }
+  50% { transform: scale(1.05); box-shadow: 0 0 40px rgba(20, 136, 204, 0.6); }
+  100% { transform: scale(1); box-shadow: 0 0 25px rgba(20, 136, 204, 0.4); }
+}
+
+@keyframes float-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes float-y-reverse {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
 }
 
 /* ===============================
