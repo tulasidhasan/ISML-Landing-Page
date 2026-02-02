@@ -5,7 +5,7 @@ export default function Bonuses() {
     { 
       title: "Intl. Exam Roadmap", 
       value: "₹2500", 
-      desc: "Step-by-step guide for DELF, Goethe & JLPT", // Aligns with Profile's exam focus
+      desc: "Step-by-step guide for DELF, Goethe & CERF", // Aligns with Profile's exam focus
       tag: "CAREER READY"
     },
     { 

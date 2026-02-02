@@ -15,7 +15,7 @@ const faqs = [
   },
   {
     question: "What languages are available in this batch?",
-    answer: "The 2026 Foundation Batch focuses on French (DELF A1) and German (Goethe A1). Japanese JLPT prep is available in select batches." // Clarifying Circular vs Profile
+    answer: "The 2026 Foundation Batch focuses on French (DELF A1) and German (Goethe A1)." // Clarifying Circular vs Profile
   },
   {
     question: "Will I get a certificate?",

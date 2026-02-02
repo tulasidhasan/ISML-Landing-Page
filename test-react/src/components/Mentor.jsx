@@ -64,15 +64,16 @@ export default function Mentor({ onEnroll }) {
                 <div>
                   <strong>Duration:</strong>
                   <span>12-14 Weeks (2 Hrs/Session)</span>
+                  <span>1.5 Hrs Teaching & 1/2 Hr Speaking Practice</span>
                 </div>
               </div>
             </div>
             
             <div className="mentor-actions">
                <button className="mentor-cta-btn pulse-btn" onClick={onEnroll}>
-                  Join Batch – ₹1299 <span className="old-price">₹2000</span>
+                  Join Batch – ₹1299 <span className="old-price">₹7794</span>
                </button>
-               <p className="offer-timer">⚡ Limited seats for 2026 Batch</p>
+               <p className="offer-timer">⚡ Hurry Up</p>
             </div>
           </div>
         </div>

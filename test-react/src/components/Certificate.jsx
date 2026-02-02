@@ -22,7 +22,7 @@ export default function Certificate() {
               <span className="icon">🏆</span>
               <div>
                 <strong>Internationally Aligned</strong>
-                <p>Curriculum structured around DELF (A1), Goethe (A1), and JLPT (N5) standards.</p>
+                <p>Curriculum structured around DELF (A1), Goethe (A1), and CERF standards.</p>
               </div>
             </li>
             <li>

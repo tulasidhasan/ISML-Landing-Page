@@ -23,7 +23,7 @@ export default function Navbar({ onEnroll }) {
       </div>
 
       {/* Primary CTA Button */}
-      <button className="nav-btn" onClick={onEnroll}>Enroll Now</button>
+      <button className="nav-btn" onClick={onEnroll}>Register Now</button>
     </nav>
   );
 }

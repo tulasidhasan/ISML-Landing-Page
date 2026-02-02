@@ -7,16 +7,16 @@ export default function Hero({ onEnroll }) {
         {/* LEFT: Content & CTA */}
         <div className="hero-content fade-up show">
           {/* Date from Circular [cite: 71] */}
-          <div className="badge-pill">🚀 New Batch Starts 15 Feb 2026</div>
+          <div className="badge-pill">🚀 New Batch Starts From This Week</div>
           
           <h1>
             Your Premier Destination for <br />
-            <span className="highlight-text">MODERN LANGUAGES</span>
+            <span className="highlight-text">LEARNING LANGUAGES</span>
           </h1>
 
           <p className="hero-subtext">
-            Join the <strong>ISML Foundation Program</strong>. A structured 3-month certificate course 
-            aligned with international standards (DELF, Goethe, JLPT). 
+            Join the <strong>INDIAN SCHOOL FOR MODERN LANGUAGES Foundation Program</strong>. A structured 3-month certificate course 
+            aligned with international standards (DELF, Goethe, CERF). 
             Bridge cultures and build a global career.
           </p>
 
