@@ -102,12 +102,36 @@ body {
 .nav-btn:hover { transform: translateY(-2px); }
 
 /* Mobile Navbar */
+/* ===============================
+   MOBILE NAVBAR UPDATES
+   =============================== */
 @media (max-width: 900px) {
-  .nav-links { display: none; }
-  .logo-text { display: none; } /* Only show icon on mobile to save space */
-  .navbar { padding: 12px 20px; }
-}
+  .navbar { 
+    padding: 12px 16px; 
+  }
 
+  .nav-links { 
+    display: none; /* Keep links hidden */
+  } 
+
+  /* SHOW THE TEXT "ISML" */
+  .logo-text { 
+    display: block !important; /* Force it to show */
+    font-size: 1.1rem; /* Make it smaller to fit mobile */
+    margin-left: 6px; /* Space between icon and text */
+  }
+
+  /* Adjust the logo image size if needed */
+  .logo-img {
+    height: 32px; /* Slightly smaller logo icon */
+  }
+
+  /* Ensure the "Register" button doesn't squish the logo */
+  .nav-btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+}
 /* ===============================
    3. HERO SECTION
    =============================== */
