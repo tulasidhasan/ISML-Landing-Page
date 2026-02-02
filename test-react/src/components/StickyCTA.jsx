@@ -41,7 +41,7 @@ export default function StickyCTA({ onEnroll }) {
         </span>
 
         <div className="price-box">
-           <del>₹2000</del>
+           <del className="strike-text">₹7794</del>
            <span className="final-price">₹1299</span>
         </div>
 

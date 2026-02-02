@@ -71,7 +71,7 @@ export default function Mentor({ onEnroll }) {
             
             <div className="mentor-actions">
                <button className="mentor-cta-btn pulse-btn" onClick={onEnroll}>
-                  Join Batch – ₹1299 <span className="old-price">₹7794</span>
+                  Join Batch – ₹1299 <span className="strike-text">₹7794</span>
                </button>
                <p className="offer-timer">⚡ Hurry Up</p>
             </div>

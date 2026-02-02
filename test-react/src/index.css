@@ -852,3 +852,16 @@ body {
 .status-btn:hover { background-color: #1d4ed8; }
 .success h1 { color: #16a34a; }
 .failure h1 { color: #dc2626; }
+
+/* ===============================
+   Amount Strike
+   =============================== */
+   /* Generic Strikethrough Class */
+.strike-text {
+  text-decoration: line-through; /* This draws the line */
+  color: #ef4444; /* Red color (optional, looks good for offers) */
+  opacity: 0.7;   /* Slightly faded */
+  font-size: 0.9em; /* Slightly smaller than the main price */
+  margin-right: 8px; /* Space between this and the new price */
+  font-weight: 500;
+}

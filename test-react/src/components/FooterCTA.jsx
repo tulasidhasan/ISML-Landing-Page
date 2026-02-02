@@ -12,7 +12,7 @@ export default function FooterCTA({ onEnroll }) {
         
         <div className="footer-actions">
           <button className="footer-btn pulse-btn" onClick={onEnroll}>
-            Register Now – ₹1299 <span className="strike-price">₹7794</span>
+            Register Now – ₹1299 <span className="strike-text">₹7794</span>
           </button>
           <p className="guarantee-text">🔒 Official ISML Certification • 100% Secure Payment
             with PayU
