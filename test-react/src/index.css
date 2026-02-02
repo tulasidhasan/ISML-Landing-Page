@@ -889,3 +889,120 @@ body {
   margin-right: 8px; /* Space between this and the new price */
   font-weight: 500;
 }
+
+/* ===============================
+   11. ANIMATION ENGINE (Paste at bottom)
+   =============================== */
+
+/* Float vertically (for images/cards) */
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Subtle Pulse (for backgrounds/blobs) */
+@keyframes pulse-glow {
+  0% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 0.5; }
+}
+
+/* Shimmer Effect (for buttons) */
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+
+/* Entrance: Slide Up (for Hero text) */
+@keyframes slide-up-fade {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Entrance: Pop In (for Badges) */
+@keyframes pop-in {
+  0% { opacity: 0; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Update .hero-section to animate content on load */
+.hero-section h1 {
+  animation: slide-up-fade 0.8s ease-out forwards;
+}
+
+.hero-subtext {
+  opacity: 0; /* Hidden initially */
+  animation: slide-up-fade 0.8s ease-out 0.2s forwards; /* 0.2s delay */
+}
+
+.hero-actions {
+  opacity: 0;
+  animation: slide-up-fade 0.8s ease-out 0.4s forwards; /* 0.4s delay */
+}
+
+/* Make the Hero Video Float */
+.video-wrapper-hero {
+  animation: float-y 6s ease-in-out infinite; /* Gently bobs up and down */
+}
+
+/* Make the Blob behind the video breathe */
+.video-decoration {
+  animation: pulse-glow 5s infinite alternate;
+}
+
+/* Add this to your existing .btn-primary rule */
+.btn-primary {
+  /* ... keep your existing styles ... */
+  position: relative;
+  overflow: hidden; /* Important for the sheen */
+}
+
+/* Create the light reflection */
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  animation: shimmer 3s infinite; /* Runs every 3 seconds */
+}
+
+/* Update Hover for Compare Cards */
+.compare-card {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.compare-card:hover {
+  transform: translateY(-8px); /* Lifts higher */
+  box-shadow: 0 15px 35px rgba(0, 194, 203, 0.15); /* Cyan Glow */
+  border-bottom: 3px solid var(--accent); /* Accent underline appears */
+}
+
+/* Update Hover for Bonus/Gift Cards */
+.bonus-card {
+  transition: all 0.3s ease;
+}
+
+.bonus-card:hover {
+  transform: translateY(-8px) scale(1.02); /* Slight zoom */
+  box-shadow: 0 20px 40px rgba(0, 84, 166, 0.1); /* Blue Glow */
+  border-color: var(--primary); /* Border turns blue */
+}
+
+.navbar {
+  /* ... keep existing styles ... */
+  animation: slide-down 0.8s ease-out forwards;
+}
+
+@keyframes slide-down {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
