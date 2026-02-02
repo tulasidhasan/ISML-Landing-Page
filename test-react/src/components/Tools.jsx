@@ -1,5 +1,4 @@
 import React, { useMemo, useState } from 'react';
-import './Tools.css';
 
 export default function Tools() {
   const [isSpinning, setIsSpinning] = useState(false);
