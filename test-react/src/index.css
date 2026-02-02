@@ -402,6 +402,11 @@ body {
 /* ===============================
    7. INTERACTIVE WHEEL (Tools)
    =============================== */
+ /* =========================================
+   7. INTERACTIVE WHEEL (Tools) - COMPLETE
+   ========================================= */
+
+/* --- Container --- */
 .wheel-section {
   padding: 5rem 0;
   background: #fdfdfd; 
@@ -421,7 +426,7 @@ body {
   align-items: center;
 }
 
-/* Center Hub */
+/* --- Center Hub (ISML) --- */
 .wheel-hub {
   position: absolute;
   width: 130px;
@@ -429,32 +434,46 @@ body {
   background: linear-gradient(135deg, #2b32b2 0%, #1488cc 100%);
   color: white;
   border-radius: 50%;
-  z-index: 10;
+  z-index: 100; /* High z-index to ensure clickable */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   box-shadow: 0 0 40px rgba(20, 136, 204, 0.3);
   border: 5px solid white;
+  cursor: pointer; /* Show pointer hand */
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.hub-title { font-weight: 800; font-size: 1.5rem; letter-spacing: 1px; }
-.hub-icon { font-size: 2rem; margin-bottom: 5px; }
+.wheel-hub:active {
+  transform: scale(0.95); /* Press effect */
+}
 
-/* Orbit Wrapper */
+.hub-title { font-weight: 800; font-size: 1.5rem; letter-spacing: 1px; line-height: 1; }
+.hub-icon { font-size: 2rem; margin-bottom: 2px; }
+.click-hint { font-size: 0.6rem; text-transform: uppercase; margin-top: 4px; opacity: 0.8; }
+
+/* --- Orbit Wrapper --- */
 .wheel-orbit {
   position: absolute;
   width: 100%;
   height: 100%;
+  /* Default Entrance Animation */
   animation: spin-entrance 1.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
 }
 
-/* Orbit Items */
+/* CLICK ANIMATION: This class is added by React when clicked */
+.wheel-orbit.spin-active {
+  animation: spin-cycle 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* --- Individual Items --- */
 .orbit-item {
   position: absolute;
   top: 50%;
   left: 50%;
   width: 150px;
+  /* Use CSS Vars from React to position */
   transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y)));
   transition: all 0.4s ease;
   cursor: pointer;
@@ -474,87 +493,98 @@ body {
 .tool-content h4 { margin: 0; font-size: 1.1rem; color: #222; font-weight: 700; }
 .tool-content p { font-size: 0.8rem; color: #777; margin-top: 4px; }
 
-/* Hover Logic */
+/* --- Hover Interaction Logic --- */
 .wheel-orbit:hover .orbit-item {
   opacity: 0.3;
   filter: grayscale(80%);
   transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(0.95);
 }
+
 .wheel-orbit .orbit-item:hover {
   opacity: 1;
   filter: grayscale(0%);
   z-index: 50;
   transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(1.1);
 }
+
 .wheel-orbit .orbit-item:hover .tool-content {
   box-shadow: 0 15px 35px rgba(0,0,0,0.15);
   border-color: #1488cc;
 }
 
+/* --- Desktop Animations --- */
 @keyframes spin-entrance {
   0% { transform: rotate(-180deg) scale(0.2); opacity: 0; }
   100% { transform: rotate(0deg) scale(1); opacity: 1; }
 }
 
-/* Mobile Wheel */
+@keyframes spin-cycle {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 /* =========================================
-   CREATIVE MOBILE LAYOUT (Floating Galaxy)
+   MOBILE RESPONSIVE: "FLOATING GALAXY" LAYOUT
    ========================================= */
 @media (max-width: 768px) {
 
-  /* 1. Reset Container Sizing */
+  /* 1. Reset Container */
   .wheel-section {
     padding: 3rem 1.5rem;
-    overflow: visible; /* Allow shadows to breathe */
+    overflow: visible; 
   }
 
   .wheel-container {
     width: 100%;
-    height: auto; /* Allow it to grow vertically */
+    height: auto;
     margin-top: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px; /* Space between Hub and Grid */
+    gap: 40px; 
   }
 
-  /* 2. The Hub (ISML) - Beating Heart Effect */
+  /* 2. Mobile Hub */
   .wheel-hub {
-    position: relative; /* No longer absolute */
-    top: auto; left: auto;
+    position: relative; /* Stop absolute positioning */
     width: 100px;
     height: 100px;
     margin: 0 auto;
     border-width: 3px;
-    box-shadow: 0 0 25px rgba(20, 136, 204, 0.4);
-    animation: hub-pulse 3s infinite ease-in-out; /* Creative Pulse */
+    animation: hub-pulse 3s infinite ease-in-out;
   }
-  
   .hub-title { font-size: 1.2rem; }
   .hub-icon { font-size: 1.8rem; }
+  .click-hint { display: none; } /* Hide hint on mobile */
 
-  /* 3. The Grid Wrapper */
-  .wheel-orbit {
+  /* 3. Mobile Grid Wrapper */
+  .wheel-orbit, 
+  .wheel-orbit.spin-active { /* Disable spin on mobile */
     position: relative;
     width: 100%;
     height: auto;
-    animation: none; /* Stop the spin on mobile */
+    animation: none; 
     
-    /* Create a 2-column Grid */
+    /* Create Grid */
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
     padding-bottom: 20px;
   }
 
-  /* 4. Individual Cards - Reset Position & Add Float */
+  /* Disable hover dimming on mobile */
+  .wheel-orbit:hover .orbit-item {
+    opacity: 1; filter: none; transform: none;
+  }
+
+  /* 4. Individual Cards */
   .orbit-item {
-    position: relative; /* Stop flying off screen */
+    position: relative; 
     top: auto !important;
     left: auto !important;
     width: 100%;
     
-    /* IMPORTANT: Override the JS circle math */
+    /* OVERRIDE JS MATH */
     transform: none !important; 
     
     display: flex;
@@ -568,32 +598,24 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 110px; /* Uniform height */
-    background: #fff;
+    min-height: 110px;
     border: 1px solid #edf2f7;
-    /* Creative Entry Animation */
     animation: float-up 0.6s ease-out forwards;
-    opacity: 0; /* Start hidden for animation */
+    opacity: 0; 
   }
 
-  /* Show description on mobile now that we have space */
   .tool-content p {
-    display: block;
+    display: block; /* Show description */
     font-size: 0.75rem;
     opacity: 0.8;
     margin-top: 4px;
-    white-space: nowrap; /* Keep it one line if possible */
+    white-space: nowrap; 
   }
 
-  /* 5. CREATIVE STAGGERING (The "Zig-Zag" Look) */
-  /* Push every 2nd item down to create a masonry look */
-  .orbit-item:nth-child(even) {
-    margin-top: 30px; 
-  }
+  /* 5. Staggered Layout */
+  .orbit-item:nth-child(even) { margin-top: 30px; }
 
-  /* 6. ANIMATIONS */
-  
-  /* Stagger the entry animation so they pop in one by one */
+  /* 6. Mobile Animations */
   .orbit-item:nth-child(1) .tool-content { animation-delay: 0.1s; }
   .orbit-item:nth-child(2) .tool-content { animation-delay: 0.2s; }
   .orbit-item:nth-child(3) .tool-content { animation-delay: 0.3s; }
@@ -603,16 +625,16 @@ body {
   .orbit-item:nth-child(7) .tool-content { animation-delay: 0.7s; }
   .orbit-item:nth-child(8) .tool-content { animation-delay: 0.8s; }
 
-  /* Continuous Floating Motion */
+  /* Continuous Float */
   .orbit-item:nth-child(odd) .tool-content {
-    animation: float-y 4s ease-in-out infinite 1s; /* Delayed start */
+    animation: float-y 4s ease-in-out infinite 1s; 
   }
   .orbit-item:nth-child(even) .tool-content {
     animation: float-y-reverse 5s ease-in-out infinite 1s;
   }
 }
 
-/* --- New Mobile Keyframes --- */
+/* --- Mobile Keyframes --- */
 @keyframes hub-pulse {
   0% { transform: scale(1); box-shadow: 0 0 25px rgba(20, 136, 204, 0.4); }
   50% { transform: scale(1.05); box-shadow: 0 0 40px rgba(20, 136, 204, 0.6); }
