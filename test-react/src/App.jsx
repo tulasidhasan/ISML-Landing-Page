@@ -17,6 +17,8 @@ import RegisterModal from "./components/RegisterModal";
 import Success from "./components/Success";
 import Failure from "./components/Failure";
 
+import Admin from "./components/Admin";
+
 function LandingPage() {
   const [openRegister, setOpenRegister] = useState(false);
 
@@ -53,6 +55,9 @@ export default function App() {
         {/* Payment result pages */}
         <Route path="/success" element={<Success />} />
         <Route path="/failure" element={<Failure />} />
+
+        {/* Admin page */}
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </BrowserRouter>
   );
