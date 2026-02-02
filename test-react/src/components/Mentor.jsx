@@ -46,7 +46,7 @@ export default function Mentor({ onEnroll }) {
                 <span className="icon">📅</span>
                 <div>
                   <strong>Batch Starts:</strong>
-                  <span>Sunday, 18 Jan 2026</span>
+                  <span>Sunday, 15 Feb 2026</span>
                 </div>
               </div>
               <div className="session-detail">
