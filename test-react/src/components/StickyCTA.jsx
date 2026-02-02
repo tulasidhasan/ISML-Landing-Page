@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 
-const OFFER_DURATION = 5 * 60; // 5 minutes in seconds
-
 export default function StickyCTA({ onEnroll }) {
   const [show, setShow] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(OFFER_DURATION);
 
   // Show sticky CTA on scroll
   useEffect(() => {
@@ -26,21 +23,7 @@ export default function StickyCTA({ onEnroll }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Countdown timer logic
-  useEffect(() => {
-    if (timeLeft <= 0) return;
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => prev - 1);
-    }, 1000);
-    return () => clearInterval(timer);
-  }, [timeLeft]);
-
   if (!show) return null;
-
-  const minutes = String(Math.floor(timeLeft / 60)).padStart(2, "0");
-  const seconds = String(timeLeft % 60).padStart(2, "0");
-  const isOfferActive = timeLeft > 0;
-  const currentPrice = isOfferActive ? 1299 : 2000;
 
   return (
     <div className="sticky-cta-bar slide-up">
@@ -52,15 +35,14 @@ export default function StickyCTA({ onEnroll }) {
 
       {/* Right section: Price & Action */}
       <div className="sticky-right">
-        {isOfferActive && (
-          <span className="timer">
-            Offer ends in <span className="timer-red">{minutes}:{seconds}</span>
-          </span>
-        )}
+        {/* REPLACED TIMER WITH URGENCY TEXT */}
+        <span className="urgency-text">
+           🔥 Hurry Up! Limited Seats
+        </span>
 
         <div className="price-box">
            <del>₹2000</del>
-           <span className="final-price">₹{currentPrice}</span>
+           <span className="final-price">₹1299</span>
         </div>
 
         <button className="sticky-cta-button" onClick={onEnroll}>
