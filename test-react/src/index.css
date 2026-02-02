@@ -524,136 +524,135 @@ body {
 }
 
 /* =========================================
-   MOBILE RESPONSIVE: "FLOATING GALAXY" LAYOUT
+   MOBILE RESPONSIVE: COMPACT GRID
    ========================================= */
 @media (max-width: 768px) {
 
-  /* 1. Reset Container */
+  /* 1. Tighten the Section Container */
   .wheel-section {
-    padding: 3rem 1.5rem;
+    padding: 1.5rem 1rem; /* Very tight padding */
+    min-height: auto;
     overflow: visible; 
   }
 
   .wheel-container {
     width: 100%;
     height: auto;
-    margin-top: 1rem;
+    margin-top: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px; 
+    gap: 20px; /* Reduced gap between Hub and Items */
   }
 
-  /* 2. Mobile Hub */
+  /* 2. Smaller, Pulse-Free Hub (Save space) */
   .wheel-hub {
     position: relative; /* Stop absolute positioning */
-    width: 100px;
-    height: 100px;
+    top: auto; left: auto;
+    width: 80px; /* Smaller Hub */
+    height: 80px;
     margin: 0 auto;
     border-width: 3px;
+    /* Gentle pulse is okay, but keep it subtle */
     animation: hub-pulse 3s infinite ease-in-out;
   }
-  .hub-title { font-size: 1.2rem; }
-  .hub-icon { font-size: 1.8rem; }
-  .click-hint { display: none; } /* Hide hint on mobile */
+  .hub-title { font-size: 1rem; }
+  .hub-icon { font-size: 1.4rem; }
+  .click-hint { display: none; } /* Hide text to save space */
 
-  /* 3. Mobile Grid Wrapper */
+  /* 3. The Compact Grid */
   .wheel-orbit, 
-  .wheel-orbit.spin-active { /* Disable spin on mobile */
+  .wheel-orbit.spin-active { 
     position: relative;
     width: 100%;
     height: auto;
-    animation: none; 
+    animation: none; /* Disable spin */
     
-    /* Create Grid */
+    /* 2-Column Grid, Tight Spacing */
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    padding-bottom: 20px;
+    gap: 10px; /* Very small gap */
+    padding-bottom: 10px;
   }
 
-  /* Disable hover dimming on mobile */
+  /* Disable hover effects on mobile */
   .wheel-orbit:hover .orbit-item {
     opacity: 1; filter: none; transform: none;
   }
 
-  /* 4. Individual Cards */
+  /* 4. Force Items to Sit in Grid */
   .orbit-item {
     position: relative; 
     top: auto !important;
     left: auto !important;
     width: 100%;
+    margin: 0 !important; /* Remove any spacing/stagger */
     
-    /* OVERRIDE JS MATH */
+    /* CRITICAL: Override JS Position */
     transform: none !important; 
     
     display: flex;
     justify-content: center;
   }
 
+  /* 5. Smaller Tool Cards */
   .tool-content {
     width: 100%;
-    padding: 1rem;
+    padding: 10px 5px; /* Minimal padding */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 110px;
+    min-height: 85px; /* Force small uniform height */
     border: 1px solid #edf2f7;
-    animation: float-up 0.6s ease-out forwards;
-    opacity: 0; 
+    
+    /* Fix "Empty" issue: Ensure opacity is 1 by default */
+    opacity: 1; 
+    transform: translateY(0);
+    
+    /* Optional: Subtle entry animation, but defaults to visible */
+    animation: float-up 0.5s ease-out backwards;
   }
 
+  .tool-icon { 
+    font-size: 1.4rem; 
+    margin-bottom: 4px; 
+  }
+  
+  .tool-content h4 { 
+    font-size: 0.8rem; 
+    margin-bottom: 2px;
+  }
+  
   .tool-content p {
-    display: block; /* Show description */
-    font-size: 0.75rem;
-    opacity: 0.8;
-    margin-top: 4px;
-    white-space: nowrap; 
+    display: block;
+    font-size: 0.65rem; /* Tiny text */
+    line-height: 1.1;
+    color: #888;
+    margin: 0;
   }
 
-  /* 5. Staggered Layout */
-  .orbit-item:nth-child(even) { margin-top: 30px; }
-
-  /* 6. Mobile Animations */
-  .orbit-item:nth-child(1) .tool-content { animation-delay: 0.1s; }
-  .orbit-item:nth-child(2) .tool-content { animation-delay: 0.2s; }
-  .orbit-item:nth-child(3) .tool-content { animation-delay: 0.3s; }
-  .orbit-item:nth-child(4) .tool-content { animation-delay: 0.4s; }
-  .orbit-item:nth-child(5) .tool-content { animation-delay: 0.5s; }
-  .orbit-item:nth-child(6) .tool-content { animation-delay: 0.6s; }
-  .orbit-item:nth-child(7) .tool-content { animation-delay: 0.7s; }
-  .orbit-item:nth-child(8) .tool-content { animation-delay: 0.8s; }
-
-  /* Continuous Float */
-  .orbit-item:nth-child(odd) .tool-content {
-    animation: float-y 4s ease-in-out infinite 1s; 
-  }
-  .orbit-item:nth-child(even) .tool-content {
-    animation: float-y-reverse 5s ease-in-out infinite 1s;
-  }
+  /* 6. Animation Delays (Optional, purely for looks) */
+  .orbit-item:nth-child(1) .tool-content { animation-delay: 0.05s; }
+  .orbit-item:nth-child(2) .tool-content { animation-delay: 0.1s; }
+  .orbit-item:nth-child(3) .tool-content { animation-delay: 0.15s; }
+  .orbit-item:nth-child(4) .tool-content { animation-delay: 0.2s; }
+  .orbit-item:nth-child(5) .tool-content { animation-delay: 0.25s; }
+  .orbit-item:nth-child(6) .tool-content { animation-delay: 0.3s; }
+  .orbit-item:nth-child(7) .tool-content { animation-delay: 0.35s; }
+  .orbit-item:nth-child(8) .tool-content { animation-delay: 0.4s; }
 }
 
-/* --- Mobile Keyframes --- */
+/* Keep the keyframes at the bottom of the file */
 @keyframes hub-pulse {
-  0% { transform: scale(1); box-shadow: 0 0 25px rgba(20, 136, 204, 0.4); }
-  50% { transform: scale(1.05); box-shadow: 0 0 40px rgba(20, 136, 204, 0.6); }
-  100% { transform: scale(1); box-shadow: 0 0 25px rgba(20, 136, 204, 0.4); }
+  0% { transform: scale(1); box-shadow: 0 0 15px rgba(20, 136, 204, 0.4); }
+  50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(20, 136, 204, 0.6); }
+  100% { transform: scale(1); box-shadow: 0 0 15px rgba(20, 136, 204, 0.4); }
 }
 
 @keyframes float-up {
-  from { transform: translateY(20px); opacity: 0; }
+  from { transform: translateY(15px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes float-y {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-@keyframes float-y-reverse {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(8px); }
 }
 
 /* ===============================
