@@ -2,25 +2,23 @@
    1. DESIGN SYSTEM & RESET
    =============================== */
 :root {
-  /* Backgrounds
-  --bg-dark: #ffffff;        /* Main background */
-  /* --bg-card: #f0f4f8;        Card background *#021019, #0054a6/ */
 
-  /* Backgrounds */
-  --bg-dark: #ffffff;        /* Main background */
-  --bg-card: #f0f4f8;        /* Card background , #0054a6/
+  /* === GLOBAL DARK GRADIENT THEME === */
+  --bg-dark: #021019;
+  --bg-card: rgba(255,255,255,0.06);
 
-  /* Brand Colors (ISML) */
-  --primary: #0054a6;        /* Royal Blue */
-  --accent: #00c2cb;         /* Cyan/Turquoise */
+  /* Brand Colors */
+  --primary: #2aa4ff;
+  --accent: #00e0ff;
 
-  /* Text */
-  --text-main: #061a26;      /* Dark Navy */
-  --text-muted: #5f7d95;     /* Muted Grey-Blue */
+  /* TEXT COLORS (IMPORTANT) */
+  --text-main: #e6f4ff;
+  --text-muted: #9ec7e6;
 
   /* Borders */
-  --border-soft: rgba(0, 84, 166, 0.15);
+  --border-soft: rgba(255,255,255,0.12);
 }
+
 
 * {
   margin: 0;
@@ -30,10 +28,11 @@
 }
 
 body {
-    background-color: var(--bg-dark);
-    color: var(--text-main);
-    overflow-x: hidden; /* Prevent horizontal scroll */
+  background: linear-gradient(135deg, #021019, #0054a6);
+  color: var(--text-main);
+  overflow-x: hidden;
 }
+
 
 /* ===============================
    2. NAVBAR
@@ -46,9 +45,9 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 16px 5%;
-  background: rgba(255, 255, 255, 0.90);
+  background: rgba(2,16,25,0.75);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
   backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(0,0,0,0.05);
   transition: all 0.3s ease;
 }
 
@@ -59,7 +58,7 @@ body {
   cursor: pointer;
 }
 
-.logo-img { height: 40px; width: auto; }
+.logo-img { height: 80px; width: auto; }
 
 .logo-text {
   font-weight: 800;
@@ -285,21 +284,22 @@ body {
 }
 
 .stats-glass-strip {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(16px);
   border-radius: 16px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 30px 40px;
-  border: 1px solid rgba(255,255,255,1);
+  border: 1px solid rgba(255,255,255,0.1);
 }
+
 
 .stat-item { text-align: center; flex: 1; position: relative; }
 .stat-number { font-size: 2rem; font-weight: 800; color: var(--primary); line-height: 1; margin-bottom: 5px; }
 .stat-label { font-size: 0.9rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-.stat-divider { position: absolute; right: 0; top: 10%; height: 80%; width: 1px; background: #e2e8f0; }
+.stat-divider { position: absolute; right: 0; top: 10%; height: 80%; width: 1px;  background: rgba(255,255,255,0.12); }
 
 /* Mobile Stats */
 @media (max-width: 768px) {
@@ -318,7 +318,7 @@ body {
 /* ===============================
    5. TRUST / COMPARISON SECTION
    =============================== */
-.trust-section { padding: 80px 20px; background: #f8fbff; }
+.trust-section { padding: 80px 20px; background: transparent; }
 .trust-container { max-width: 1100px; margin: 0 auto; text-align: center; }
 .section-title { color: var(--primary); font-size: 2.2rem; font-weight: 800; margin-bottom: 10px; }
 .section-subtitle { color: var(--text-muted); margin-bottom: 60px; font-size: 1.1rem; }
@@ -326,7 +326,9 @@ body {
 .comparison-grid { display: flex; align-items: center; justify-content: center; gap: 40px; position: relative; }
 
 .compare-card {
-  background: #fff;
+  background: rgba(255,255,255,0.06);
+backdrop-filter: blur(12px);
+
   border-radius: 16px;
   padding: 40px;
   flex: 1;
@@ -353,7 +355,8 @@ body {
 
 .connector { display: flex; align-items: center; justify-content: center; z-index: 2; }
 .arrow-circle {
-  background: #fff; width: 50px; height: 50px; border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+ width: 50px; height: 50px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   color: var(--text-muted); font-size: 1.5rem; font-weight: bold;
@@ -376,7 +379,9 @@ body {
   grid-template-columns: 350px 1fr;
   gap: 60px;
   align-items: center;
-  background: #fff;
+  background: rgba(255,255,255,0.06);
+backdrop-filter: blur(12px);
+
   border-radius: 24px;
   padding: 50px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
@@ -437,7 +442,7 @@ body {
 /* --- Container --- */
 .wheel-section {
   padding: 5rem 0;
-  background: #fdfdfd; 
+  background: transparent; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -696,7 +701,9 @@ body {
 /* ===============================
    8. BONUSES & CERTIFICATE
    =============================== */
-.bonuses-section { background: linear-gradient(180deg, #f0f4f8 0%, #ffffff 100%); padding: 80px 20px; }
+.bonuses-section { background: rgba(255,255,255,0.06);
+backdrop-filter: blur(12px);
+ padding: 80px 20px; }
 .bonuses-container { max-width: 1000px; margin: 0 auto; }
 .bonuses-header { text-align: center; margin-bottom: 50px; }
 .bonuses-header h2 { color: var(--primary); font-size: 2.2rem; margin-bottom: 10px; }
@@ -708,7 +715,10 @@ body {
 }
 
 .bonus-card {
-  background: #ffffff;
+  background: rgba(255,255,255,0.06);
+backdrop-filter: blur(12px);
+
+  backdrop-filter: blur(12px);
   border: 2px dashed var(--accent);
   border-radius: 16px;
   padding: 30px;
@@ -732,7 +742,7 @@ body {
 .check-icon { font-size: 1.5rem; color: var(--primary); margin-top: 16px; }
 
 /* Certificate */
-.certificate-section { padding: 80px 20px; background: #fff; }
+.certificate-section { padding: 80px 20px; background: transparent; }
 .cert-grid {
   display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
   align-items: center; max-width: 1100px; margin: 0 auto;
@@ -778,12 +788,14 @@ body {
 .section-title.center { text-align: center; margin-bottom: 40px; }
 .faq-list { display: flex; flex-direction: column; gap: 16px; }
 .faq-item {
-  background: #ffffff; border-radius: 12px; overflow: hidden;
+  background: rgba(255,255,255,0.06);
+backdrop-filter: blur(12px);
+ border-radius: 12px; overflow: hidden;
   border: 1px solid var(--border-soft); transition: all 0.3s ease; cursor: pointer;
 }
 .faq-item.open { border-color: var(--primary); box-shadow: 0 10px 30px rgba(0, 84, 166, 0.08); }
 .faq-question { padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: var(--text-main); }
-.faq-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: #f8fbff; }
+.faq-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: rgba(255,255,255,0.04); }
 .faq-item.open .faq-content { max-height: 200px; }
 .faq-answer { padding: 0 24px 24px; color: var(--text-muted); line-height: 1.6; }
 .arrow { transition: transform 0.3s ease; color: var(--accent); }
@@ -851,7 +863,9 @@ body {
   display: flex; align-items: center; justify-content: center; z-index: 3000; animation: fadeIn 0.2s ease;
 }
 .modal-box {
-  background: #ffffff; width: 90%; max-width: 480px; padding: 32px;
+  background: rgba(255,255,255,0.06);
+backdrop-filter: blur(12px);
+ width: 90%; max-width: 480px; padding: 32px;
   border-radius: 20px; position: relative; box-shadow: 0 25px 60px rgba(0,0,0,0.4);
   animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -883,7 +897,9 @@ body {
 
 /* Payment Status */
 .status-page { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #f8fafc; padding: 20px; }
-.status-card { background: #ffffff; padding: 40px 30px; border-radius: 12px; max-width: 420px; width: 100%; text-align: center; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); }
+.status-card { background: rgba(255,255,255,0.06);
+backdrop-filter: blur(12px);
+ padding: 40px 30px; border-radius: 12px; max-width: 420px; width: 100%; text-align: center; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); }
 .status-card h1 { font-size: 26px; margin-bottom: 12px; }
 .status-card p { font-size: 15px; color: #475569; margin-bottom: 10px; }
 .status-btn { display: inline-block; margin-top: 20px; padding: 12px 22px; background-color: #2563eb; color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: 500; transition: background-color 0.2s ease; }
@@ -1019,4 +1035,12 @@ body {
 @keyframes slide-down {
   from { transform: translateY(-100%); }
   to { transform: translateY(0); }
+}
+
+h1,h2,h3,h4 {
+  color: var(--text-main);
+}
+
+p,span,li {
+  color: var(--text-muted);
 }

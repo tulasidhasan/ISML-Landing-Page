@@ -46,7 +46,7 @@ export default function Mentor({ onEnroll }) {
                 <span className="icon">📅</span>
                 <div>
                   <strong>Batch Starts:</strong>
-                  <span>Sunday, 15 Feb 2026</span>
+                  <span>This Week</span>
                 </div>
               </div>
               <div className="session-detail">
@@ -64,7 +64,7 @@ export default function Mentor({ onEnroll }) {
                 <div>
                   <strong>Duration:</strong>
                   <span>12-14 Weeks (2 Hrs/Session)</span>
-                  <span>1.5 Hrs Teaching & 1/2 Hr Speaking Practice</span>
+                  <span>1.5 Hrs Teaching & 30 mins Speaking Practice</span>
                 </div>
               </div>
             </div>
