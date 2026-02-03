@@ -2,9 +2,13 @@
    1. DESIGN SYSTEM & RESET
    =============================== */
 :root {
+  /* Backgrounds
+  --bg-dark: #ffffff;        /* Main background */
+  /* --bg-card: #f0f4f8;        Card background *#021019, #0054a6/ */
+
   /* Backgrounds */
   --bg-dark: #ffffff;        /* Main background */
-  --bg-card: #f0f4f8;        /* Card background */
+  --bg-card: #f0f4f8;        /* Card background , #0054a6/
 
   /* Brand Colors (ISML) */
   --primary: #0054a6;        /* Royal Blue */

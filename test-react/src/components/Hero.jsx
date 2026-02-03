@@ -16,7 +16,7 @@ export default function Hero({ onEnroll }) {
 
           <p className="hero-subtext">
             Join the <strong>INDIAN SCHOOL FOR MODERN LANGUAGES Foundation Program</strong>. A structured 3-month certificate course 
-            aligned with international standards (DELF, Goethe, CERF). 
+            aligned with international standards (DELF, Goethe, CEFR). 
             Bridge cultures and build a global career.
           </p>
 
