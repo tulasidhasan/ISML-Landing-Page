@@ -407,8 +407,15 @@ backdrop-filter: blur(12px);
 .mentor-name { font-size: 2.2rem; margin-bottom: 16px; color: var(--text-main); }
 .mentor-bio { font-size: 1.05rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 30px; }
 
-.session-info-box { background: #f8fafc; padding: 24px; border-radius: 12px; border: 1px solid #e2e8f0; }
-.session-row { display: flex; gap: 40px; margin-bottom: 24px; border-bottom: 1px solid #e2e8f0; padding-bottom: 20px; }
+.session-info-box {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.session-row { display: flex; gap: 40px; margin-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,0.12); padding-bottom: 20px; }
 .session-detail { display: flex; align-items: center; gap: 12px; }
 .session-detail .icon { font-size: 1.8rem; }
 .session-detail div { display: flex; flex-direction: column; }
@@ -1043,4 +1050,23 @@ h1,h2,h3,h4 {
 
 p,span,li {
   color: var(--text-muted);
+}
+
+
+.session-detail strong {
+  color: var(--text-muted);
+}
+
+.session-detail span {
+  color: var(--text-main);
+}
+
+.badge-exp {
+  background: rgba(255,140,0,0.15);
+  color: #ffb26b;
+}
+
+.badge-role {
+  background: rgba(0,160,255,0.15);
+  color: #6cc7ff;
 }
