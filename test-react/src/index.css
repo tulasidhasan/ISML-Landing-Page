@@ -531,17 +531,18 @@ backdrop-filter: blur(12px);
 
 .tool-content {
   text-align: center;
-  background: white;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(12px);
   padding: 1.2rem;
   border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-  border: 1px solid #f0f0f0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.1);
 }
 
+
 .tool-icon { font-size: 2rem; margin-bottom: 0.5rem; }
-.tool-content h4 { margin: 0; font-size: 1.1rem; color: #222; font-weight: 700; }
-.tool-content p { font-size: 0.8rem; color: #777; margin-top: 4px; }
+.tool-content h4 { margin: 0; font-size: 1.1rem; color: var(--text-main); font-weight: 700; }
+.tool-content p { font-size: 0.8rem; color: var(--text-muted); margin-top: 4px; }
 
 /* --- Hover Interaction Logic --- */
 .wheel-orbit:hover .orbit-item {
@@ -558,9 +559,10 @@ backdrop-filter: blur(12px);
 }
 
 .wheel-orbit .orbit-item:hover .tool-content {
-  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-  border-color: #1488cc;
+  border-color: var(--accent);
+  box-shadow: 0 15px 35px rgba(0,224,255,0.15);
 }
+
 
 /* --- Desktop Animations --- */
 @keyframes spin-entrance {
