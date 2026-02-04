@@ -10,8 +10,8 @@ export default function Hero({ onEnroll }) {
           <div className="badge-pill">🚀 New Batch Starts From This Week</div>
           
           <h1>
-            Your Premier Destination for <br />
-            <span className="highlight-text">LANGUAGE LEARNING</span>
+            It is always a right time to <br />
+            <span className="highlight-text">START LEARNING</span>
           </h1>
 
           <p className="hero-subtext">

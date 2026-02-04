@@ -1254,3 +1254,19 @@ p,span,li {
   color: var(--accent);
   margin-bottom: 4px;
 }
+
+.hub-logo {
+  width: 150%;
+  height: 150%;
+  object-fit: contain;
+  pointer-events: none; /* keeps click working */
+}
+
+.spin-active .hub-logo {
+  animation: logoSpin 1s ease;
+}
+
+@keyframes logoSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
