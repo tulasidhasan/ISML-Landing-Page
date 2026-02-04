@@ -1162,3 +1162,30 @@ p,span,li {
   background: rgba(0,160,255,0.15);
   color: #6cc7ff;
 }
+
+.status-support {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  text-align: center;
+}
+
+.status-support h3 {
+  margin-bottom: 8px;
+  color: var(--text-main);
+}
+
+.status-support p {
+  color: var(--text-muted);
+  margin: 4px 0;
+}
+
+.support-block {
+  margin-top: 14px;
+}
+
+.support-block strong {
+  display: block;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
