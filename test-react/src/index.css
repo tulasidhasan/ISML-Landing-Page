@@ -994,17 +994,6 @@ backdrop-filter: blur(12px);
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes scaleUp { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
-/* Payment Status */
-.status-page { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #f8fafc; padding: 20px; }
-.status-card { background: rgba(255,255,255,0.06);
-backdrop-filter: blur(12px);
- padding: 40px 30px; border-radius: 12px; max-width: 420px; width: 100%; text-align: center; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); }
-.status-card h1 { font-size: 26px; margin-bottom: 12px; }
-.status-card p { font-size: 15px; color: #475569; margin-bottom: 10px; }
-.status-btn { display: inline-block; margin-top: 20px; padding: 12px 22px; background-color: #2563eb; color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: 500; transition: background-color 0.2s ease; }
-.status-btn:hover { background-color: #1d4ed8; }
-.success h1 { color: #16a34a; }
-.failure h1 { color: #dc2626; }
 
 /* ===============================
    Amount Strike
@@ -1162,6 +1151,82 @@ p,span,li {
   background: rgba(0,160,255,0.15);
   color: #6cc7ff;
 }
+
+/* ===============================
+   PAYMENT STATUS PAGE (DARK PREMIUM)
+   =============================== */
+
+.status-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+
+  /* DARK GRADIENT BACKGROUND */
+  background: linear-gradient(135deg, #021019, #0054a6);
+}
+
+.status-card {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(14px);
+  padding: 40px 30px;
+  border-radius: 16px;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+
+  border: 1px solid rgba(255,255,255,0.12);
+
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.35),
+    0 0 25px rgba(0,160,255,0.08);
+}
+
+/* TITLE */
+.status-card h1 {
+  font-size: 26px;
+  margin-bottom: 12px;
+}
+
+/* TEXT */
+.status-card p {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+/* BUTTON */
+.status-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 22px;
+
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #ffffff;
+
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 600;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.status-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,160,255,0.25);
+}
+
+/* SUCCESS / FAILURE COLORS */
+.success h1 {
+  color: #22c55e;
+}
+
+.failure h1 {
+  color: #ef4444;
+}
+
+/* ===== SUPPORT SECTION ===== */
 
 .status-support {
   margin-top: 30px;
