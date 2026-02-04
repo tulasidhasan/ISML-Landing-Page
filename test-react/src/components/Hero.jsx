@@ -11,11 +11,11 @@ export default function Hero({ onEnroll }) {
           
           <h1>
             Your Premier Destination for <br />
-            <span className="highlight-text">LEARNING LANGUAGES</span>
+            <span className="highlight-text">LANGUAGE LEARNING</span>
           </h1>
 
           <p className="hero-subtext">
-            Join the <strong>INDIAN SCHOOL FOR MODERN LANGUAGES Foundation Program</strong>. A structured 3-month certificate course 
+            Join the <strong>Indian School for Modern Languages Foundation Program</strong>. A structured 3-month certificate course 
             aligned with international standards (DELF, Goethe, CEFR). 
             Bridge cultures and build a global career.
           </p>

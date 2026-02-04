@@ -18,16 +18,18 @@ export default function Tools() {
       icon: <img src="https://flagcdn.com/de.svg" alt="DE" className="flag-icon"/>, 
       desc: "Goethe Prep" 
     },
-    { name: "Speaking", icon: "🗣️", desc: "Fluency" },
-    { name: "Reading", icon: "📖", desc: "Comprehension" },
-    { name: "Writing", icon: "✍️", desc: "Grammar" },
-    { name: "Listening", icon: "🎧", desc: "Audio Training" },
-    { name: "Culture", icon: "🌏", desc: "Etiquette" },
+
     { 
       name: "CEFR", 
       icon: <img src="https://flagcdn.com/eu.svg" alt="EU" className="flag-icon"/>, 
       desc: "EU Standards" 
-    }
+    },
+    { name: "Speaking", icon: "🗣️", desc: "Fluency" },
+    { name: "Reading", icon: "📖", desc: "Comprehension" },
+    { name: "Writing", icon: "✍️", desc: "Grammar" },
+    { name: "Listening", icon: "🎧", desc: "Audio Training" },
+    { name: "Culture", icon: "🌏", desc: "Etiquette" }
+    
   ];
 
   const radius = 250; 

@@ -12,7 +12,7 @@ export default function Certificate() {
           
           <h2>Validating Your 3-Month Journey</h2>
           <p className="cert-subtext">
-            Upon successful completion of the <strong>ISML Foundation Program</strong>, 
+            Upon successful completion of the <strong>Indian School for Modern Languages Foundation Program</strong>, 
             you will be awarded a Certificate of Completion. This document validates your 
             foundational proficiency in French, German, or Japanese.
           </p>
